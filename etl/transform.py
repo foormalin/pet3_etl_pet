@@ -30,7 +30,7 @@ def save_data(df: pd.DataFrame, output_path: str = PROCESSED_DATA_PATH) -> None:
   df.to_csv(output_path, index=False)
   print(f"Successfully saved {len(df)} rows to {output_path}.")
 
-if __name__ = "__main__":
+if __name__ == "__main__":
   raw_data = extract_data()
   cleaned_data = transform_data(raw_datа)
   save_data(cleaned_data)
