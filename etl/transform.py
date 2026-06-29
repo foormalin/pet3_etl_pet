@@ -31,6 +31,6 @@ def save_data(df: pd.DataFrame, output_path: str = PROCESSED_DATA_PATH) -> None:
   print(f"Successfully saved {len(df)} rows to {output_path}.")
 
 if __name__ = "__main__":
-  raw_data - extract_data()
-  cleaned_data = transform_data(raw_date)
+  raw_data = extract_data()
+  cleaned_data = transform_data(raw_datа)
   save_data(cleaned_data)
