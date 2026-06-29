@@ -1,1 +1,39 @@
+version: "3.8"
 
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: de_project
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  etl:
+    build: .
+
+    container_name: etl
+
+    depends_on:
+      - postgres
+
+    volumes:
+      - .:/app
+
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: de_project
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+
+volumes:
+  postgres_data:
